@@ -24,7 +24,7 @@ module dig_clock_current_tb;
     
     //Generating the Clock with `1 Hz frequency
     initial clk = 0;
-    always #0.001 clk = ~clk;  //Every 0.5 sec toggle the clock.
+    always #0.001 clk = ~clk;  // 50000000 for more accurate timing
 
     initial begin
         reset = 1;
