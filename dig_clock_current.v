@@ -4,6 +4,9 @@ module dig_clock_current(
     input clk,  //Clock with 1 Hz frequency
     input reset,     //active high reset
     input mode,     // default 1'b0 = 24 hr clock, 1'b1 = 12 hr clock
+    input [5:0] s_in,
+    input [5:0] m_in,
+    input [4:0] h_in,
     output reg [5:0] seconds,
     output reg [5:0] minutes,
     output reg [4:0] hours    
@@ -17,9 +20,9 @@ module dig_clock_current(
                 
             if(reset == 1'b1) begin  //check for active high reset.
                 //reset the time.
-                seconds = 0;
-                minutes = 0;
-                hours = 0;  end
+                seconds = s_in;
+                minutes = m_in;
+                hours = h_in;  end
             else if(clk == 1'b1) begin  //at the beginning of each second
                 seconds = seconds + 1; //increment sec
                 if(seconds == 60) begin //check for max value of sec
