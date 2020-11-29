@@ -6,6 +6,9 @@ module dig_clock_current_tb;
     reg clk;
     reg reset;
     reg mode;
+    reg [5:0] s_in;
+    reg [5:0] m_in;
+    reg [4:0] h_in;
 
     // Outputs
     wire [5:0] seconds;
