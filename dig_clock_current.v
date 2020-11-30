@@ -12,7 +12,7 @@ module dig_clock_current(
     output reg [4:0] hours    
     );
     
-    always @(posedge(clk) or posedge(reset) or mode)
+    always @(posedge(clk) or posedge(reset) or posedge mode)
     begin
             if (mode == 1'b1 && hours > 12) begin
                 hours = hours - 12;
